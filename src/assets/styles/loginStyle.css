@@ -1,0 +1,139 @@
+.account-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.login-container {
+  background: #116069;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 420px;
+  text-align: center;
+}
+
+.login-container h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.login-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form p {
+    color: white;
+}
+
+.login-form a {
+    color: white;
+    text-decoration: none;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input-box label {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.input-box input {
+  background-color: #F3F3F3;
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.input-box input:focus {
+  outline: none;
+  border: 1px solid white;
+}
+
+.input-box input::placeholder {
+  color: #aaa;
+}
+
+.login-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-btn:hover {
+  background: #e00d20;
+}
+
+.input-row {
+  display: flex;
+  gap: 20;
+}
+
+.input-row .input-box {
+  flex: 1;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .account-screen {
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+
+  .login-container {
+    width: 100%;
+    padding: 20px 20px;
+    margin-top: 150px;
+  }
+
+  .login-container h1 {
+    font-size: 2rem;
+  }
+
+  .login-form {
+    gap: 15px;
+  }
+
+  .input-box input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-screen {
+    margin-top: 20px;
+  }
+
+  .login-container {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  .login-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-box input {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
