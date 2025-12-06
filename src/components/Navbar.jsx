@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../assets/styles/styles.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import config from '../config';
 
 function Navbar() {
 
@@ -29,7 +30,7 @@ function Navbar() {
   const checkLoginStatus = async () => {
    console.log('Checking login status...');
     try {
-      const response = await fetch('http://localhost:5001/api/user/isLoggedIn', {  
+      const response = await fetch(`${config.apiUrl}/api/user/isLoggedIn`, {  
         method: 'GET',
         credentials: 'include',
       });
@@ -55,7 +56,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/user/logout', {
+      const response = await fetch(`${config.apiUrl}/api/user/logout`, {
         method: 'POST',
         credentials: 'include',
       });

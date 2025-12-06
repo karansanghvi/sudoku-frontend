@@ -3,6 +3,7 @@ import "../assets/styles/styles.css";
 import "../assets/styles/loginStyle.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import config from '../config';
 
 function LoginPage() {
 
@@ -34,7 +35,7 @@ function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/user/login', {
+      const response = await fetch(`${config.apiUrl}/api/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

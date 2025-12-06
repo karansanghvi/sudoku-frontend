@@ -3,6 +3,7 @@ import "../assets/styles/styles.css";
 import "../assets/styles/loginStyle.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import config from '../config';
 
 function RegisterPage() {
 
@@ -35,7 +36,7 @@ function RegisterPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/user/register', {
+      const response = await fetch(`${config.apiUrl}/api/user/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

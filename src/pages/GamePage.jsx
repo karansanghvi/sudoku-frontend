@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import "../assets/styles/styles.css";
 import { SudokuContext } from '../context/SudokuContext';
 import SudokuBoard from '../components/SudokuBoard';
+import config from '../config';
 
 function GamePage() {
   const { gameId } = useParams(); 
@@ -51,7 +52,7 @@ function GamePage() {
     setLoading(true);
     
     try {
-      const response = await fetch(`http://localhost:5001/api/sudoku/${gameId}`, {
+      const response = await fetch(`${config.apiUrl}/api/sudoku/${gameId}`, {
         method: 'GET',
         credentials: 'include',
       });
@@ -119,7 +120,7 @@ function GamePage() {
     console.log('Saving progress...', { time, boardLength: board.length });
 
     try {
-      const response = await fetch(`http://localhost:5001/api/sudoku/${gameId}/progress`, {
+      const response = await fetch(`${config.apiUrl}/api/sudoku/${gameId}/progress`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -155,7 +156,7 @@ function GamePage() {
       console.log('Marking game as complete...');
       await saveProgress();
 
-      const response = await fetch(`http://localhost:5001/api/sudoku/${gameId}`, {
+      const response = await fetch(`${config.apiUrl}/api/sudoku/${gameId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

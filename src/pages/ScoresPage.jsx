@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../assets/styles/styles.css";
+import config from '../config';
 
 function ScoresPage() {
   const [userScores, setUserScores] = useState([]);
@@ -13,12 +14,12 @@ function ScoresPage() {
 
   const fetchScores = async () => {
     try {
-      const userResponse = await fetch('http://localhost:5001/api/highscore', {
+      const userResponse = await fetch(`${config.apiUrl}/api/highscore`, {
         method: 'GET',
         credentials: 'include',
       });
 
-      const gameResponse = await fetch('http://localhost:5001/api/highscore/games', {
+      const gameResponse = await fetch(`${config.apiUrl}/api/highscore/games`, {
         method: 'GET',
         credentials: 'include',
       });

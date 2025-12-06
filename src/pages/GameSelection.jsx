@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../assets/styles/styles.css";
 import { useNavigate } from 'react-router-dom';
+import config from '../config';
 
 function GameSelection() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function GameSelection() {
   // Fetch list of all games
   const fetchGames = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/sudoku', {
+      const response = await fetch(`${config.apiUrl}/api/sudoku`, {
         method: 'GET',
         credentials: 'include',
       });
@@ -43,7 +44,7 @@ function GameSelection() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5001/api/sudoku', {
+      const response = await fetch(`${config.apiUrl}/api/sudoku`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +81,7 @@ function GameSelection() {
     setError('');
 
     try {
-      const response = await fetch(`http://localhost:5001/api/sudoku/${gameId}`, {
+      const response = await fetch(`${config.apiUrl}/api/sudoku/${gameId}`, {
         method: 'DELETE',
         credentials: 'include',
       });
